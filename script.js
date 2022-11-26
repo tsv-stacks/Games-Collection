@@ -14,8 +14,16 @@ function Game(title, platform, genre, completed) {
 }
 
 const Doom = new Game('Doom 2016', 'Steam', "Shooter", true)
+const Factorio = new Game('Factorio', 'Steam', 'Strategy', true)
 
 // console.log(Doom)
 let doomArray = Object.values(Doom)
 // console.log(doomArray.join(", "))
 console.log(Doom.info())
+
+Game.prototype.sayPlatform = function () {
+    console.log(this.platform)
+}
+
+Doom.sayPlatform()
+Factorio.sayPlatform()
