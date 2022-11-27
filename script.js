@@ -1,4 +1,5 @@
 let myLibrary = []
+let modal = document.getElementById("modal-add-game")
 let gameOneOutput = document.getElementById('game1')
 const gameContainer = document.getElementById('game-container')
 
@@ -9,6 +10,20 @@ function Game(title, platform, genre, completed) {
     this.genre = genre;
     this.completed = completed;
 }
+
+
+// button brings up form
+// collect user input
+// check game entry does not already exist
+// submit event.preventDefault()
+
+// button functionality
+
+// function goes through myLibrary array
+// if completed == true , change true to completed
+// checks length
+// makes div and span inner.HTML
+// push to html
 
 function addGametoLibrary(obj) {
     myLibrary.push(obj)
@@ -26,14 +41,10 @@ function updateDisplay() {
         gameContainer.appendChild(newDiv)
     }
 }
-// function goes through myLibrary array
-// if completed == true , change true to completed
-// checks length
-// makes div and span inner.HTML
-// push to html
 
 
-const Doom = new Game('Doom 2016', 'Steam', "Shooter", true)
+
+const Doom = new Game('DOOM 2016', 'Steam', "Shooter", true)
 const Factorio = new Game('Factorio', 'Steam', 'Strategy', true)
 
 // console.log(Doom)
@@ -78,3 +89,17 @@ addGametoLibrary(doomEternal)
 // console.log(myLibrary)
 
 updateDisplay()
+
+function openForm() {
+    document.getElementById("modal-add-game").style.display = 'block'
+}
+
+function closeForm() {
+    document.getElementById("modal-add-game").style.display = 'none'
+}
+
+window.onclick = function (event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
