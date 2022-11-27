@@ -31,13 +31,14 @@ function addGametoLibrary(obj) {
 
 function updateDisplay() {
     console.log('hi')
+    gameContainer.textContent = ""
     for (let i = 0; i < myLibrary.length; i++) {
         let newDiv = document.createElement('div')
         newDiv.id = `game${i}`
-        console.log(newDiv.id)
+        // console.log(newDiv.id)
         newDiv.className = 'game'
         newDiv.innerHTML = myLibrary[i].listAll();
-        console.log(newDiv)
+        // console.log(newDiv)
         gameContainer.appendChild(newDiv)
     }
 }
@@ -101,5 +102,12 @@ function closeForm() {
 window.onclick = function (event) {
     if (event.target == modal) {
         modal.style.display = "none";
+    }
+}
+
+function resetList() {
+    let result = confirm('This will clear the list of games in the collection. \nThere is no way to undo this. \nAre you sure you want to clear the list?')
+    if (result) {
+        gameContainer.textContent = ""
     }
 }
