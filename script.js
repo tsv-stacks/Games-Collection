@@ -1,29 +1,80 @@
+let myLibrary = []
+let gameOneOutput = document.getElementById('game1')
+const gameContainer = document.getElementById('game-container')
+
+
 function Game(title, platform, genre, completed) {
     this.title = title;
     this.platform = platform;
     this.genre = genre;
     this.completed = completed;
-    this.info = function (array) {
-        array = ['title', 'platform', 'genre', 'completed']
-        const gameOutput = []
-        for (let i = 0; i < array.length; i++) {
-            gameOutput.push(this[array[i]])
-        }
-        return gameOutput.join(', ')
+}
+
+function addGametoLibrary(obj) {
+    myLibrary.push(obj)
+}
+
+function updateDisplay() {
+    console.log('hi')
+    for (let i = 0; i < myLibrary.length; i++) {
+        let newDiv = document.createElement('div')
+        newDiv.id = `game${i}`
+        console.log(newDiv.id)
+        newDiv.className = 'game'
+        newDiv.innerHTML = myLibrary[i].listAll();
+        console.log(newDiv)
+        gameContainer.appendChild(newDiv)
     }
 }
+// function goes through myLibrary array
+// if completed == true , change true to completed
+// checks length
+// makes div and span inner.HTML
+// push to html
+
 
 const Doom = new Game('Doom 2016', 'Steam', "Shooter", true)
 const Factorio = new Game('Factorio', 'Steam', 'Strategy', true)
 
 // console.log(Doom)
-let doomArray = Object.values(Doom)
-// console.log(doomArray.join(", "))
-console.log(Doom.info())
+
+// console.log(Doom.info())
 
 Game.prototype.sayPlatform = function () {
     console.log(this.platform)
 }
 
-Doom.sayPlatform()
-Factorio.sayPlatform()
+Game.prototype.sayTitle = function () {
+    console.log(this.title)
+}
+
+Game.prototype.sayGenre = function () {
+    console.log(this.genre)
+}
+
+Game.prototype.listAll = function () {
+    array = ['title', 'platform', 'genre', 'completed']
+    const gameOutput = []
+    for (let i = 0; i < array.length; i++) {
+        gameOutput.push(this[array[i]])
+    }
+    return gameOutput.join(', ')
+}
+
+let doomEternal = {}
+console.log(Doom)
+doomEternal = Object.create(Doom)
+doomEternal.title = 'DOOM Eternal'
+doomEternal.sayPlatform()
+console.log(Doom.listAll())
+console.log(Factorio.listAll())
+// Doom.sayPlatform()
+
+addGametoLibrary(Doom)
+addGametoLibrary(Factorio)
+addGametoLibrary(doomEternal)
+// let game1 = myLibrary[0].listAll()
+// gameOneOutput.textContent = game1
+// console.log(myLibrary)
+
+updateDisplay()
