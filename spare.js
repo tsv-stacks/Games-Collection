@@ -7,21 +7,21 @@
 //     return gameOutput.join(', ')
 // }
 
-function Student(name, grade) {
-    this.name = name
-    this.grade = grade
-}
+// function Student(name, grade) {
+//     this.name = name
+//     this.grade = grade
+// }
 
-function ages(age) {
-    this.age = age
-}
+// function ages(age) {
+//     this.age = age
+// }
 
-ages.prototype = Object.create(Student.prototype)
+// ages.prototype = Object.create(Student.prototype)
 
-const me = new ages(26)
-me.name = 'Tarndeep'
-me.grade = 2
-console.log(me)
+// const me = new ages(26)
+// me.name = 'Tarndeep'
+// me.grade = 2
+// console.log(me)
 
 
 // let doom1 = {
@@ -35,3 +35,7 @@ console.log(me)
 // doom2.title = 'DOOM Eternal'
 // console.log(doom2.genre)
 // console.log(doom2)
+
+let array = ('a,b,c,d')
+
+console.log(array.split(','))

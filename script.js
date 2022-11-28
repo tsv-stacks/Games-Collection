@@ -52,6 +52,26 @@ const Factorio = new Game('Factorio', 'Steam', 'Strategy', true)
 
 // console.log(Doom.info())
 
+// Game.prototype = {
+//     sayPlatform: function () {
+//         console.log(this.platform);
+//     },
+//     sayTitle: function () {
+//         console.log(this.title);
+//     },
+//     sayGenre: function () {
+//         console.log(this.genre);
+//     },
+//     listAll: function () {
+//         array = ['title', 'platform', 'genre', 'completed']
+//         const gameOutput = []
+//         for (let i = 0; i < array.length; i++) {
+//             gameOutput.push(this[array[i]])
+//         }
+//         return gameOutput.join(', ')
+//     }
+// }
+
 Game.prototype.sayPlatform = function () {
     console.log(this.platform)
 }
