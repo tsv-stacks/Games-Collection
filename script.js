@@ -11,14 +11,16 @@ function Game(title, platform, genre, completed) {
     this.completed = completed;
 }
 
+// check game entry does not already exist
+
 function titleCheck(title, platform) {
-    console.log('new title =' + title)
     for (let i = 0; i < myLibrary.length; i++) {
         if (myLibrary[i].sayTitle() == title && myLibrary[i].sayPlatform() == platform) {
-            console.log(myLibrary[i].sayPlatform())
-            console.log(platform)
+            // console.log(myLibrary[i].sayPlatform())
+            // console.log(platform)
             console.log('title already exists')
-            return window.alert("Game already exists in Library!");
+            window.alert("Game already exists in Library!")
+            return false;
         } else {
             console.log('new title')
         }
@@ -36,20 +38,19 @@ function inputArray() {
     console.log(genre)
     let completed = document.querySelector('input[name="mod-complete-status"]:checked').value;
     console.log(completed)
-    titleCheck(title, platform)
-    //
-    // is game title even necessary?
-    // let gameTitle = title.toLowerCase()
-    // gameTitle = gameTitle.replace(/\s+/g, '');
-    // console.log(gameTitle)
-    gameTitle = new Game(title, platform, genre, completed)
-    console.log(gameTitle)
+    if (titleCheck(title, platform) !== false) {
+        let gameTitle = new Game(title, platform, genre, completed)
+        addGametoLibrary(gameTitle)
+        updateDisplay()
+    }
 }
+
+// make new function
+// addGametoLibrary(gameTitle)
+// updateDisplay()
 
 // button brings up form
 // collect user input
-// check game entry does not already exist
-// submit event.preventDefault()
 
 // button functionality
 // if text is in form, clear text when closing it

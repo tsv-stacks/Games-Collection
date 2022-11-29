@@ -82,17 +82,27 @@
           </select>
 
           <label for="mod-complete-status">Completed: </label>
-          <input type="radio" name="mod-complete-status" id="Yes" value="yes" />
+          <input
+            type="radio"
+            name="mod-complete-status"
+            id="Yes"
+            value="true"
+          />
           <label for="Yes">Yes</label>
-          <input type="radio" name="mod-complete-status" id="No" value="no" />
+          <input
+            type="radio"
+            name="mod-complete-status"
+            id="No"
+            value="false"
+          />
           <label for="No">No</label>
 
           <div class="clearfix">
-            <button type="button" onclick="closeForm()" class="cancelbtn">
-              Cancel
-            </button>
             <button type="submit" class="submitbtn" onclick="inputArray()">
               Submit
+            </button>
+            <button type="button" onclick="closeForm()" class="cancelbtn">
+              Cancel
             </button>
           </div>
         </div>
