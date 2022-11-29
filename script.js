@@ -19,7 +19,8 @@ function titleCheck(title, platform) {
             // console.log(myLibrary[i].sayPlatform())
             // console.log(platform)
             console.log('title already exists')
-            return window.alert("Game already exists in Library!");
+            window.alert("Game already exists in Library!")
+            return false;
         } else {
             console.log('new title')
         }
@@ -37,9 +38,12 @@ function inputArray() {
     console.log(genre)
     let completed = document.querySelector('input[name="mod-complete-status"]:checked').value;
     console.log(completed)
-    titleCheck(title, platform)
-    let gameTitle = new Game(title, platform, genre, completed)
-    console.log(gameTitle)
+    if (titleCheck(title, platform) !== false) {
+        let gameTitle = new Game(title, platform, genre, completed)
+        addGametoLibrary(gameTitle)
+        updateDisplay()
+    }
+
 }
 
 // make new function
