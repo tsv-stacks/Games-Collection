@@ -26,15 +26,10 @@
           <div class="close" title="Close Modal" onclick="closeForm()">X</div>
           <h2>Add New Game</h2>
           <label for="mod-title">Title: </label>
-          <input
-            type="text"
-            placeholder="Game Title"
-            required
-            name="mod-title"
-          />
+          <input type="text" placeholder="Game Title" name="mod-title" />
 
           <label for="mod-platform">Platform: </label>
-          <select name="mod-platform" id="mod-platform" required>
+          <select name="mod-platform" id="mod-platform">
             <option value="" disabled selected>Select Game Platform</option>
             <optgroup label="--PC--">
               <option value="Steam">Steam</option>
@@ -68,7 +63,7 @@
           </select>
 
           <label for="mod-genre">Genre: </label>
-          <select name="mod-genre" id="mod-genre" required>
+          <select name="mod-genre" id="mod-genre">
             <option selected disabled value="">Select Game Genre</option>
             <option value="Action">Action</option>
             <option value="Adventure">Adventure</option>
@@ -82,21 +77,9 @@
           </select>
 
           <label for="mod-complete-status">Completed: </label>
-          <input
-            type="radio"
-            name="mod-complete-status"
-            id="Yes"
-            value="yes"
-            required
-          />
+          <input type="radio" name="mod-complete-status" id="Yes" value="yes" />
           <label for="Yes">Yes</label>
-          <input
-            type="radio"
-            name="mod-complete-status"
-            id="No"
-            value="no"
-            required
-          />
+          <input type="radio" name="mod-complete-status" id="No" value="no" />
           <label for="No">No</label>
 
           <div class="clearfix">
