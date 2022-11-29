@@ -11,6 +11,40 @@ function Game(title, platform, genre, completed) {
     this.completed = completed;
 }
 
+function titleCheck(title, platform) {
+    console.log('new title =' + title)
+    for (let i = 0; i < myLibrary.length; i++) {
+        if (myLibrary[i].sayTitle() == title && myLibrary[i].sayPlatform() == platform) {
+            console.log(myLibrary[i].sayPlatform())
+            console.log(platform)
+            console.log('title already exists')
+            return window.alert("Game already exists in Library!");
+        } else {
+            console.log('new title')
+        }
+    }
+}
+
+function inputArray() {
+    console.log('hi papi')
+    // title, platform, genre, completed
+    let title = document.getElementById("newGameForm").elements[0].value;
+    console.log(title)
+    let platform = document.getElementById("newGameForm").elements[1].value
+    console.log(platform)
+    let genre = document.getElementById('mod-genre').value
+    console.log(genre)
+    let completed = document.querySelector('input[name="mod-complete-status"]:checked').value;
+    console.log(completed)
+    titleCheck(title, platform)
+    //
+    // is game title even necessary?
+    // let gameTitle = title.toLowerCase()
+    // gameTitle = gameTitle.replace(/\s+/g, '');
+    // console.log(gameTitle)
+    gameTitle = new Game(title, platform, genre, completed)
+    console.log(gameTitle)
+}
 
 // button brings up form
 // collect user input
@@ -18,6 +52,7 @@ function Game(title, platform, genre, completed) {
 // submit event.preventDefault()
 
 // button functionality
+// if text is in form, clear text when closing it
 
 // function goes through myLibrary array
 // if completed == true , change true to completed
@@ -73,11 +108,11 @@ const Factorio = new Game('Factorio', 'Steam', 'Strategy', true)
 // }
 
 Game.prototype.sayPlatform = function () {
-    console.log(this.platform)
+    return this.platform
 }
 
 Game.prototype.sayTitle = function () {
-    console.log(this.title)
+    return this.title
 }
 
 Game.prototype.sayGenre = function () {
@@ -101,6 +136,7 @@ doomEternal.sayPlatform()
 console.log(Doom.listAll())
 console.log(Factorio.listAll())
 // Doom.sayPlatform()
+// console.log(Game.prototype.sayTitle)
 
 addGametoLibrary(Doom)
 addGametoLibrary(Factorio)

@@ -21,7 +21,12 @@
       <!-- <span class="close" title="Close Modal" onclick="closeForm()"
         >times;</span
       > -->
-      <form action="" class="modal-content">
+      <form
+        action=""
+        class="modal-content"
+        id="newGameForm"
+        onsubmit="event.preventDefault();"
+      >
         <div class="modal-container">
           <div class="close" title="Close Modal" onclick="closeForm()">X</div>
           <h2>Add New Game</h2>
@@ -86,7 +91,9 @@
             <button type="button" onclick="closeForm()" class="cancelbtn">
               Cancel
             </button>
-            <button type="submit" class="submitbtn">Submit</button>
+            <button type="submit" class="submitbtn" onclick="inputArray()">
+              Submit
+            </button>
           </div>
         </div>
       </form>
