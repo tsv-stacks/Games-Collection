@@ -43,7 +43,6 @@ function inputArray() {
         addGametoLibrary(gameTitle)
         updateDisplay()
     }
-
 }
 
 // make new function
