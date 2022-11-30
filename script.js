@@ -15,7 +15,7 @@ function Game(title, platform, genre, completed) {
 
 function createDeleteBtn() {
     let btn = document.createElement('button');
-    btn.id = 'delete-btn'
+    btn.classList.add('delete-btn')
     btn.setAttribute('data', `game${i}`)
     let currentiD = `game${i}`
     currentiD.appendChild(btn)
@@ -78,6 +78,20 @@ function addGametoLibrary(obj) {
     myLibrary.push(obj)
 }
 
+// deleteBtn function
+
+function deleteEntry(thisdata) {
+    console.log('delete entry button')
+    btnData = thisdata.getAttribute('data-a')
+    console.log(btnData)
+    console.log(myLibrary)
+    myLibrary.splice(btnData, 1)
+    console.log(myLibrary)
+    updateDisplay()
+}
+
+// toggle completed
+
 function updateDisplay() {
     console.log('hi')
     gameContainer.textContent = ""
@@ -90,18 +104,19 @@ function updateDisplay() {
         // console.log(newDiv)
         gameContainer.appendChild(newDiv)
         let btn = document.createElement('button');
-        btn.id = 'delete-btn'
-        btn.setAttribute('data', `game${i}`)
+        btn.classList.add('delete-btn')
+        btn.setAttribute('data-a', `${i}`)
         btn.innerHTML = "Delete"
-        btn.onclick = function () { console.log('delete button function') }
+        btn.onclick = function () { deleteEntry(this) }
         gameContainer.appendChild(btn)
         let togglebtn = document.createElement('button')
-        togglebtn.id = 'toggle-btn'
-        togglebtn.setAttribute('data', `game${i}`)
+        togglebtn.classList.add('toggle-btn')
+        togglebtn.setAttribute('data-b', `${i}`)
         togglebtn.innerHTML = "Completed"
         togglebtn.onclick = function () { console.log('toggle complete button') }
         gameContainer.appendChild(togglebtn)
     }
+
 }
 
 
