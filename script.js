@@ -82,11 +82,12 @@ function addGametoLibrary(obj) {
 
 function deleteEntry(thisdata) {
     console.log('delete entry button')
+    console.log(thisdata)
     btnData = thisdata.getAttribute('data-a')
-    console.log(btnData)
-    console.log(myLibrary)
+    // console.log(btnData)
+    // console.log(myLibrary)
     myLibrary.splice(btnData, 1)
-    console.log(myLibrary)
+    // console.log(myLibrary)
     updateDisplay()
 }
 
