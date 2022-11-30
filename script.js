@@ -11,10 +11,18 @@ function Game(title, platform, genre, completed) {
     this.completed = completed;
 }
 
+// create deletebutton
+
+function createDeleteBtn() {
+    let btn = document.createElement('button');
+    btn.id = 'delete-btn'
+
+}
+
 // form reset
 
 function formReset() {
-    // code
+    document.getElementById('newGameForm').reset()
 }
 
 // check game entry does not already exist
@@ -48,12 +56,9 @@ function inputArray() {
         let gameTitle = new Game(title, platform, genre, completed)
         addGametoLibrary(gameTitle)
         updateDisplay()
+        formReset()
     }
 }
-
-// make new function
-// addGametoLibrary(gameTitle)
-// updateDisplay()
 
 // button brings up form
 // collect user input
@@ -123,7 +128,7 @@ Game.prototype.sayTitle = function () {
 }
 
 Game.prototype.sayGenre = function () {
-    console.log(this.genre)
+    return this.genre
 }
 
 Game.prototype.listAll = function () {
@@ -159,12 +164,14 @@ function openForm() {
 }
 
 function closeForm() {
-    document.getElementById("modal-add-game").style.display = 'none'
+    document.getElementById("modal-add-game").style.display = 'none';
+    formReset()
 }
 
 window.onclick = function (event) {
     if (event.target == modal) {
         modal.style.display = "none";
+        formReset()
     }
 }
 
