@@ -11,6 +11,12 @@ function Game(title, platform, genre, completed) {
     this.completed = completed;
 }
 
+// form reset
+
+function formReset() {
+    // code
+}
+
 // check game entry does not already exist
 
 function titleCheck(title, platform) {
