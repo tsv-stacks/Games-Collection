@@ -89,6 +89,16 @@ function updateDisplay() {
         newDiv.innerHTML = myLibrary[i].listAll();
         // console.log(newDiv)
         gameContainer.appendChild(newDiv)
+        let btn = document.createElement('button');
+        btn.id = 'delete-btn'
+        btn.setAttribute('data', `game${i}`)
+        btn.innerHTML = "Delete"
+        gameContainer.appendChild(btn)
+        let togglebtn = document.createElement('button')
+        togglebtn.id = 'toggle-btn'
+        togglebtn.setAttribute('data', `game${i}`)
+        togglebtn.innerHTML = "Completed"
+        gameContainer.appendChild(togglebtn)
     }
 }
 
