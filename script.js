@@ -93,11 +93,13 @@ function updateDisplay() {
         btn.id = 'delete-btn'
         btn.setAttribute('data', `game${i}`)
         btn.innerHTML = "Delete"
+        btn.onclick = function () { console.log('delete button function') }
         gameContainer.appendChild(btn)
         let togglebtn = document.createElement('button')
         togglebtn.id = 'toggle-btn'
         togglebtn.setAttribute('data', `game${i}`)
         togglebtn.innerHTML = "Completed"
+        togglebtn.onclick = function () { console.log('toggle complete button') }
         gameContainer.appendChild(togglebtn)
     }
 }
