@@ -16,7 +16,9 @@ function Game(title, platform, genre, completed) {
 function createDeleteBtn() {
     let btn = document.createElement('button');
     btn.id = 'delete-btn'
-
+    btn.setAttribute('data', `game${i}`)
+    let currentiD = `game${i}`
+    currentiD.appendChild(btn)
 }
 
 // form reset
