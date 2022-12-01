@@ -94,6 +94,9 @@ function deleteEntry(thisdata) {
 
 function completedToggle(thisdata) {
     console.log('completed toggle button')
+    let num = thisdata.getAttribute('data-b')
+    myLibrary[num].completed = !myLibrary[num].completed
+    updateDisplay()
 }
 
 function updateDisplay() {
