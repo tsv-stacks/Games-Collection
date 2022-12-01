@@ -39,3 +39,21 @@
 let array = ('a,b,c,d')
 
 console.log(array.split(','))
+
+// function addGametoLibrary(obj) {
+//     myLibrary.push(obj)
+// }
+
+
+// function formReset() {
+//     document.getElementById('newGameForm').reset()
+// }
+
+function closeForm() {
+    document.getElementById("modal-add-game").style.display = 'none';
+    formReset()
+}
+
+// function openForm() {
+//     document.getElementById("modal-add-game").style.display = 'block'
+// }

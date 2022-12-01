@@ -12,9 +12,17 @@
     <header></header>
     <nav id="navbar"></nav>
     <div class="btn-container">
-      <button class="btn" onclick="openForm()">Add Game</button>
-      <button class="btn" onclick="updateDisplay()">Refresh List</button>
-      <button class="btn" onclick="resetList()">Reset List</button>
+      <button title="add a new game" class="btn" onclick="openForm()">
+        Add Game
+      </button>
+      <!-- <button class="btn" onclick="updateDisplay()">Refresh List</button> -->
+      <button
+        title="clear all games in collection"
+        class="btn"
+        onclick="resetList()"
+      >
+        Reset List
+      </button>
     </div>
     <div id="game-container"></div>
     <div id="modal-add-game" class="modal">

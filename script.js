@@ -4,6 +4,9 @@ let gameOneOutput = document.getElementById('game1')
 const gameContainer = document.getElementById('game-container')
 
 
+const Doom = new Game('DOOM 2016', 'Steam', "Shooter", true)
+const Factorio = new Game('Factorio', 'Steam', 'Strategy', true)
+
 function Game(title, platform, genre, completed) {
     this.title = title;
     this.platform = platform;
@@ -23,9 +26,7 @@ function createDeleteBtn() {
 
 // form reset
 
-function formReset() {
-    document.getElementById('newGameForm').reset()
-}
+const formReset = () => document.getElementById('newGameForm').reset()
 
 // check game entry does not already exist
 
@@ -74,9 +75,7 @@ function inputArray() {
 // makes div and span inner.HTML
 // push to html
 
-function addGametoLibrary(obj) {
-    myLibrary.push(obj)
-}
+const addGametoLibrary = obj => myLibrary.push(obj);
 
 // deleteBtn function
 
@@ -93,6 +92,10 @@ function deleteEntry(thisdata) {
 
 // toggle completed
 
+function completedToggle(thisdata) {
+    console.log('completed toggle button')
+}
+
 function updateDisplay() {
     console.log('hi')
     gameContainer.textContent = ""
@@ -108,22 +111,18 @@ function updateDisplay() {
         btn.classList.add('delete-btn')
         btn.setAttribute('data-a', `${i}`)
         btn.innerHTML = "Delete"
+        btn.title = 'delete game entry'
         btn.onclick = function () { deleteEntry(this) }
         gameContainer.appendChild(btn)
         let togglebtn = document.createElement('button')
         togglebtn.classList.add('toggle-btn')
         togglebtn.setAttribute('data-b', `${i}`)
+        togglebtn.title = 'completed'
         togglebtn.innerHTML = "Completed"
-        togglebtn.onclick = function () { console.log('toggle complete button') }
+        togglebtn.onclick = function () { completedToggle(this) }
         gameContainer.appendChild(togglebtn)
     }
-
 }
-
-
-
-const Doom = new Game('DOOM 2016', 'Steam', "Shooter", true)
-const Factorio = new Game('Factorio', 'Steam', 'Strategy', true)
 
 // console.log(Doom)
 
@@ -183,15 +182,11 @@ console.log(Factorio.listAll())
 addGametoLibrary(Doom)
 addGametoLibrary(Factorio)
 addGametoLibrary(doomEternal)
-// let game1 = myLibrary[0].listAll()
-// gameOneOutput.textContent = game1
-// console.log(myLibrary)
 
+// function runs on page load
 updateDisplay()
 
-function openForm() {
-    document.getElementById("modal-add-game").style.display = 'block'
-}
+const openForm = () => document.getElementById("modal-add-game").style.display = 'block'
 
 function closeForm() {
     document.getElementById("modal-add-game").style.display = 'none';
