@@ -1,10 +1,10 @@
 :root {
   --coquelicot: #fa3500ff;
   --yellow-green-color-wheel: #00ac00ff;
-  --cornflower-blue: #6b88feff;
+  --cornflower-blue: rgb(107, 136, 254);
   --peach-puff: #f1d0b1ff;
-  --cerulean-blue: #3e5ad3ff;
-  --rust: #b14c15ff;
+  --cerulean-blue: rgb(62, 90, 211);
+  --rust: rgb(177, 76, 21);
   --bitter-lime: #b7f818ff;
   --snow: #fefafaff;
 
@@ -15,7 +15,7 @@
 
 * {
   box-sizing: border-box;
-  border: 1px white solid;
+  /* border: 1px red solid; */
   font-family: "Fira Sans", sans-serif;
 }
 
@@ -63,10 +63,23 @@ header img {
 /* button container */
 .btn {
   font-family: "VT323", monospace;
+  /* display: inline-flex; */
 }
 
 .btn-container {
   height: 5vh;
+  display: flex;
+  justify-content: space-evenly;
+  margin-left: 15%;
+  margin-right: 15%;
+  align-items: bottom;
+}
+
+.pixel {
+  font-size: 24px;
+  padding: 2px 15px;
+  cursor: pointer;
+  text-align: center;
 }
 
 /* footer */
@@ -85,14 +98,17 @@ footer {
 
 .me-tsvstacks p {
   margin: 0;
-  opacity: 1;
 }
 
 .me-tsvstacks {
-  /* background-color: var(--rust); */
+  background-color: rgba(177, 76, 21, 0.4);
   border-radius: 5px;
   padding: 5px;
   margin: 0 auto;
+}
+
+.fa-icons {
+  background-color: rgba(177, 76, 21, 0.3);
 }
 
 .fa-icons a {
@@ -110,18 +126,27 @@ footer {
 }
 
 #game-container {
+  padding-top: 3%;
   overflow-y: auto;
   max-height: 77vh;
   flex: 1 0 auto;
 }
 
 .game {
+  background-color: rgba(107, 136, 254, 0.8);
   display: flex;
   justify-content: space-evenly;
   align-items: center;
   flex-wrap: wrap;
   margin-left: 5%;
   margin-right: 5%;
+  border: 2px solid var(--bitter-lime);
+}
+
+.game:hover {
+  transform: scale(1.05);
+  background-color: rgba(62, 90, 211, 0.85);
+  color: var(--snow);
 }
 
 /* modal sign up form */
@@ -146,6 +171,16 @@ footer {
   margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
   border: 1px solid #888;
   width: 80%;
+}
+
+.modal-container {
+  min-width: 250px;
+  background-color: var(--bitter-lime);
+}
+
+.modal-container h2 {
+  text-align: center;
+  font-family: "VT323", monospace;
 }
 
 .close {
@@ -204,5 +239,9 @@ footer {
 
   footer {
     margin: 0;
+  }
+
+  .pixel {
+    font-size: 18px;
   }
 }
