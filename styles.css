@@ -15,7 +15,7 @@
 
 * {
   box-sizing: border-box;
-  border: 1px red solid;
+  border: 1px white solid;
   font-family: "Fira Sans", sans-serif;
 }
 
@@ -32,6 +32,8 @@ body {
   background-size: cover;
   height: 100vh;
   max-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 /* header */
@@ -51,6 +53,7 @@ header h1 {
   text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
     1px 1px 0 #000;
   font-family: "Common Pixel", sans-serif;
+  flex-shrink: 0;
 }
 
 header img {
@@ -62,13 +65,38 @@ header img {
   font-family: "VT323", monospace;
 }
 
+.btn-container {
+  height: 5vh;
+}
+
 /* footer */
 
 footer {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  width: 100%;
+  /* width: 100%; */
+  height: 8vh;
+  flex-shrink: 0;
+  overflow: hidden;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+.me-tsvstacks p {
+  margin: 0;
+  opacity: 1;
+}
+
+.me-tsvstacks {
+  /* background-color: var(--rust); */
+  border-radius: 5px;
+  padding: 5px;
+  margin: 0 auto;
+}
+
+.fa-icons a {
+  text-decoration: none;
 }
 
 .me-tsvstacks,
@@ -77,11 +105,14 @@ footer {
   color: var(--snow);
   text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
     1px 1px 0 #000;
+  font-size: 32px;
+  text-decoration: none;
 }
 
 #game-container {
   overflow-y: auto;
-  max-height: 75vh;
+  max-height: 77vh;
+  flex: 1 0 auto;
 }
 
 .game {
@@ -157,5 +188,21 @@ footer {
 
   header img {
     height: 30%;
+  }
+
+  .me-tsvstacks,
+  .me-tsvstacks a {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 455px) {
+  .me-tsvstacks,
+  .me-tsvstacks a {
+    font-size: 15px;
+  }
+
+  footer {
+    margin: 0;
   }
 }
