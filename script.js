@@ -6,6 +6,10 @@ const gameContainer = document.getElementById('game-container')
 
 const Doom = new Game('DOOM 2016', 'Steam', "Shooter", true)
 const Factorio = new Game('Factorio', 'Steam', 'Strategy', true)
+const Rage2 = new Game('Rage 2', 'Epic', 'Action', true)
+const StS = new Game('Slay the Spire', 'Steam', 'Strategy', false)
+const VS = new Game('Vampire Survivors', 'Steam', 'Action', false)
+const DE = new Game('DOOM Eternal', 'Steam', "Shooter", true)
 
 function Game(title, platform, genre, completed) {
     this.title = title;
@@ -128,6 +132,7 @@ function updateDisplay() {
         // makes delete button
         let btn = document.createElement('button');
         btn.classList.add('delete-btn')
+        btn.classList.add('btn')
         btn.setAttribute('data-a', `${i}`)
         btn.innerHTML = "Delete"
         btn.title = 'delete game entry'
@@ -136,6 +141,7 @@ function updateDisplay() {
         // makes completed toggle
         let togglebtn = document.createElement('button')
         togglebtn.classList.add('toggle-btn')
+        togglebtn.classList.add('btn')
         togglebtn.setAttribute('data-b', `${i}`)
         togglebtn.title = 'completed'
         togglebtn.innerHTML = "Completed"
@@ -172,9 +178,13 @@ Game.prototype.listAll = function () {
     }
     return gameOutput.join(', ')
 }
-
+//delete below
 addGametoLibrary(Doom)
 addGametoLibrary(Factorio)
+addGametoLibrary(Rage2)
+addGametoLibrary(StS)
+addGametoLibrary(VS)
+addGametoLibrary(DE)
 
 // function runs on page load
 updateDisplay()
