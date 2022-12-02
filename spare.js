@@ -57,3 +57,40 @@ function closeForm() {
 // function openForm() {
 //     document.getElementById("modal-add-game").style.display = 'block'
 // }
+
+let doomEternal = {}
+console.log(Doom)
+doomEternal = Object.create(Doom)
+doomEternal.title = 'DOOM Eternal'
+doomEternal.sayPlatform()
+console.log(Doom.listAll())
+console.log(Factorio.listAll())
+// Doom.sayPlatform()
+// console.log(Game.prototype.sayTitle)
+
+addGametoLibrary(doomEternal)
+
+
+// console.log(Doom)
+
+// console.log(Doom.info())
+
+// Game.prototype = {
+//     sayPlatform: function () {
+//         console.log(this.platform);
+//     },
+//     sayTitle: function () {
+//         console.log(this.title);
+//     },
+//     sayGenre: function () {
+//         console.log(this.genre);
+//     },
+//     listAll: function () {
+//         array = ['title', 'platform', 'genre', 'completed']
+//         const gameOutput = []
+//         for (let i = 0; i < array.length; i++) {
+//             gameOutput.push(this[array[i]])
+//         }
+//         return gameOutput.join(', ')
+//     }
+// }

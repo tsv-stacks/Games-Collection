@@ -6,6 +6,10 @@ const gameContainer = document.getElementById('game-container')
 
 const Doom = new Game('DOOM 2016', 'Steam', "Shooter", true)
 const Factorio = new Game('Factorio', 'Steam', 'Strategy', true)
+const Rage2 = new Game('Rage 2', 'Epic', 'Action', true)
+const StS = new Game('Slay the Spire', 'Steam', 'Strategy', false)
+const VS = new Game('Vampire Survivors', 'Steam', 'Action', false)
+const DE = new Game('DOOM Eternal', 'Steam', "Shooter", true)
 
 function Game(title, platform, genre, completed) {
     this.title = title;
@@ -33,8 +37,6 @@ const formReset = () => document.getElementById('newGameForm').reset()
 function titleCheck(title, platform) {
     for (let i = 0; i < myLibrary.length; i++) {
         if (myLibrary[i].sayTitle() == title && myLibrary[i].sayPlatform() == platform) {
-            // console.log(myLibrary[i].sayPlatform())
-            // console.log(platform)
             console.log('title already exists')
             window.alert("Game already exists in Library!")
             return false;
@@ -80,14 +82,13 @@ const addGametoLibrary = obj => myLibrary.push(obj);
 // deleteBtn function
 
 function deleteEntry(thisdata) {
-    console.log('delete entry button')
-    console.log(thisdata)
-    btnData = thisdata.getAttribute('data-a')
-    // console.log(btnData)
-    // console.log(myLibrary)
-    myLibrary.splice(btnData, 1)
-    // console.log(myLibrary)
-    updateDisplay()
+    let result = confirm('Are you sure you want to delete this entry?')
+    if (result) {
+        console.log('delete entry button')
+        btnData = thisdata.getAttribute('data-a')
+        myLibrary.splice(btnData, 1)
+        updateDisplay()
+    }
 }
 
 // toggle completed
@@ -100,56 +101,54 @@ function completedToggle(thisdata) {
 }
 
 function updateDisplay() {
-    console.log('hi')
     gameContainer.textContent = ""
     for (let i = 0; i < myLibrary.length; i++) {
+        // makes div
         let newDiv = document.createElement('div')
         newDiv.id = `game${i}`
-        // console.log(newDiv.id)
         newDiv.className = 'game'
-        newDiv.innerHTML = myLibrary[i].listAll();
-        // console.log(newDiv)
         gameContainer.appendChild(newDiv)
+        let newCont = document.getElementById(`game${i}`)
+        // make title
+        let ptitle = document.createElement("p")
+        ptitle.classList.add('game-title')
+        ptitle.innerHTML = myLibrary[i].sayTitle()
+        newCont.appendChild(ptitle)
+        // make platform
+        let pPlatform = document.createElement("p")
+        pPlatform.classList.add('game-platform')
+        pPlatform.innerHTML = myLibrary[i].sayPlatform()
+        newCont.appendChild(pPlatform)
+        // make genre
+        let pGenre = document.createElement("p")
+        pGenre.classList.add('game-genre')
+        pGenre.innerHTML = myLibrary[i].sayGenre()
+        newCont.appendChild(pGenre)
+        // make completed
+        let pComplete = document.createElement("p")
+        pComplete.classList.add('game-genre')
+        pComplete.innerHTML = myLibrary[i].trueFalseConvert(myLibrary[i].completed)
+        newCont.appendChild(pComplete)
+        // makes delete button
         let btn = document.createElement('button');
         btn.classList.add('delete-btn')
+        btn.classList.add('btn')
         btn.setAttribute('data-a', `${i}`)
         btn.innerHTML = "Delete"
         btn.title = 'delete game entry'
         btn.onclick = function () { deleteEntry(this) }
-        gameContainer.appendChild(btn)
+        newCont.appendChild(btn)
+        // makes completed toggle
         let togglebtn = document.createElement('button')
         togglebtn.classList.add('toggle-btn')
+        togglebtn.classList.add('btn')
         togglebtn.setAttribute('data-b', `${i}`)
         togglebtn.title = 'completed'
         togglebtn.innerHTML = "Completed"
         togglebtn.onclick = function () { completedToggle(this) }
-        gameContainer.appendChild(togglebtn)
+        newCont.appendChild(togglebtn)
     }
 }
-
-// console.log(Doom)
-
-// console.log(Doom.info())
-
-// Game.prototype = {
-//     sayPlatform: function () {
-//         console.log(this.platform);
-//     },
-//     sayTitle: function () {
-//         console.log(this.title);
-//     },
-//     sayGenre: function () {
-//         console.log(this.genre);
-//     },
-//     listAll: function () {
-//         array = ['title', 'platform', 'genre', 'completed']
-//         const gameOutput = []
-//         for (let i = 0; i < array.length; i++) {
-//             gameOutput.push(this[array[i]])
-//         }
-//         return gameOutput.join(', ')
-//     }
-// }
 
 Game.prototype.sayPlatform = function () {
     return this.platform
@@ -163,6 +162,14 @@ Game.prototype.sayGenre = function () {
     return this.genre
 }
 
+Game.prototype.trueFalseConvert = (e) => {
+    if (e === true) {
+        return "Completed"
+    } else {
+        return "Not Completed"
+    }
+}
+
 Game.prototype.listAll = function () {
     array = ['title', 'platform', 'genre', 'completed']
     const gameOutput = []
@@ -171,20 +178,13 @@ Game.prototype.listAll = function () {
     }
     return gameOutput.join(', ')
 }
-
-let doomEternal = {}
-console.log(Doom)
-doomEternal = Object.create(Doom)
-doomEternal.title = 'DOOM Eternal'
-doomEternal.sayPlatform()
-console.log(Doom.listAll())
-console.log(Factorio.listAll())
-// Doom.sayPlatform()
-// console.log(Game.prototype.sayTitle)
-
+//delete below
 addGametoLibrary(Doom)
 addGametoLibrary(Factorio)
-addGametoLibrary(doomEternal)
+addGametoLibrary(Rage2)
+addGametoLibrary(StS)
+addGametoLibrary(VS)
+addGametoLibrary(DE)
 
 // function runs on page load
 updateDisplay()
