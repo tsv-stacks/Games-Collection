@@ -33,8 +33,6 @@ const formReset = () => document.getElementById('newGameForm').reset()
 function titleCheck(title, platform) {
     for (let i = 0; i < myLibrary.length; i++) {
         if (myLibrary[i].sayTitle() == title && myLibrary[i].sayPlatform() == platform) {
-            // console.log(myLibrary[i].sayPlatform())
-            // console.log(platform)
             console.log('title already exists')
             window.alert("Game already exists in Library!")
             return false;
@@ -105,7 +103,6 @@ function updateDisplay() {
         let newDiv = document.createElement('div')
         newDiv.id = `game${i}`
         newDiv.className = 'game'
-        // console.log(newDiv)
         gameContainer.appendChild(newDiv)
         let newCont = document.getElementById(`game${i}`)
         // make title
@@ -146,30 +143,6 @@ function updateDisplay() {
         newCont.appendChild(togglebtn)
     }
 }
-
-// console.log(Doom)
-
-// console.log(Doom.info())
-
-// Game.prototype = {
-//     sayPlatform: function () {
-//         console.log(this.platform);
-//     },
-//     sayTitle: function () {
-//         console.log(this.title);
-//     },
-//     sayGenre: function () {
-//         console.log(this.genre);
-//     },
-//     listAll: function () {
-//         array = ['title', 'platform', 'genre', 'completed']
-//         const gameOutput = []
-//         for (let i = 0; i < array.length; i++) {
-//             gameOutput.push(this[array[i]])
-//         }
-//         return gameOutput.join(', ')
-//     }
-// }
 
 Game.prototype.sayPlatform = function () {
     return this.platform
