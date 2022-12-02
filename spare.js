@@ -57,3 +57,15 @@ function closeForm() {
 // function openForm() {
 //     document.getElementById("modal-add-game").style.display = 'block'
 // }
+
+let doomEternal = {}
+console.log(Doom)
+doomEternal = Object.create(Doom)
+doomEternal.title = 'DOOM Eternal'
+doomEternal.sayPlatform()
+console.log(Doom.listAll())
+console.log(Factorio.listAll())
+// Doom.sayPlatform()
+// console.log(Game.prototype.sayTitle)
+
+addGametoLibrary(doomEternal)

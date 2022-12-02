@@ -80,14 +80,13 @@ const addGametoLibrary = obj => myLibrary.push(obj);
 // deleteBtn function
 
 function deleteEntry(thisdata) {
-    console.log('delete entry button')
-    console.log(thisdata)
-    btnData = thisdata.getAttribute('data-a')
-    // console.log(btnData)
-    // console.log(myLibrary)
-    myLibrary.splice(btnData, 1)
-    // console.log(myLibrary)
-    updateDisplay()
+    let result = confirm('Are you sure you want to delete this entry?')
+    if (result) {
+        console.log('delete entry button')
+        btnData = thisdata.getAttribute('data-a')
+        myLibrary.splice(btnData, 1)
+        updateDisplay()
+    }
 }
 
 // toggle completed
@@ -102,28 +101,49 @@ function completedToggle(thisdata) {
 function updateDisplay() {
     gameContainer.textContent = ""
     for (let i = 0; i < myLibrary.length; i++) {
-        console.log(myLibrary[i].sayPlatform())
+        // makes div
         let newDiv = document.createElement('div')
         newDiv.id = `game${i}`
-        // console.log(newDiv.id)
         newDiv.className = 'game'
-        newDiv.innerHTML = myLibrary[i].listAll();
         // console.log(newDiv)
         gameContainer.appendChild(newDiv)
+        let newCont = document.getElementById(`game${i}`)
+        // make title
+        let ptitle = document.createElement("p")
+        ptitle.classList.add('game-title')
+        ptitle.innerHTML = myLibrary[i].sayTitle()
+        newCont.appendChild(ptitle)
+        // make platform
+        let pPlatform = document.createElement("p")
+        pPlatform.classList.add('game-platform')
+        pPlatform.innerHTML = myLibrary[i].sayPlatform()
+        newCont.appendChild(pPlatform)
+        // make genre
+        let pGenre = document.createElement("p")
+        pGenre.classList.add('game-genre')
+        pGenre.innerHTML = myLibrary[i].sayGenre()
+        newCont.appendChild(pGenre)
+        // make completed
+        let pComplete = document.createElement("p")
+        pComplete.classList.add('game-genre')
+        pComplete.innerHTML = myLibrary[i].trueFalseConvert(myLibrary[i].completed)
+        newCont.appendChild(pComplete)
+        // makes delete button
         let btn = document.createElement('button');
         btn.classList.add('delete-btn')
         btn.setAttribute('data-a', `${i}`)
         btn.innerHTML = "Delete"
         btn.title = 'delete game entry'
         btn.onclick = function () { deleteEntry(this) }
-        gameContainer.appendChild(btn)
+        newCont.appendChild(btn)
+        // makes completed toggle
         let togglebtn = document.createElement('button')
         togglebtn.classList.add('toggle-btn')
         togglebtn.setAttribute('data-b', `${i}`)
         togglebtn.title = 'completed'
         togglebtn.innerHTML = "Completed"
         togglebtn.onclick = function () { completedToggle(this) }
-        gameContainer.appendChild(togglebtn)
+        newCont.appendChild(togglebtn)
     }
 }
 
@@ -163,6 +183,14 @@ Game.prototype.sayGenre = function () {
     return this.genre
 }
 
+Game.prototype.trueFalseConvert = (e) => {
+    if (e === true) {
+        return "Completed"
+    } else {
+        return "Not Completed"
+    }
+}
+
 Game.prototype.listAll = function () {
     array = ['title', 'platform', 'genre', 'completed']
     const gameOutput = []
@@ -172,19 +200,8 @@ Game.prototype.listAll = function () {
     return gameOutput.join(', ')
 }
 
-let doomEternal = {}
-console.log(Doom)
-doomEternal = Object.create(Doom)
-doomEternal.title = 'DOOM Eternal'
-doomEternal.sayPlatform()
-console.log(Doom.listAll())
-console.log(Factorio.listAll())
-// Doom.sayPlatform()
-// console.log(Game.prototype.sayTitle)
-
 addGametoLibrary(Doom)
 addGametoLibrary(Factorio)
-addGametoLibrary(doomEternal)
 
 // function runs on page load
 updateDisplay()

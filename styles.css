@@ -10,6 +10,14 @@ body {
   padding: 0;
 }
 
+/* header */
+
+header {
+  display: flex;
+  /* justify-content: space-around;
+  flex-wrap: wrap; */
+}
+
 /* modal sign up form */
 
 .modal {
