@@ -100,9 +100,9 @@ function completedToggle(thisdata) {
 }
 
 function updateDisplay() {
-    console.log('hi')
     gameContainer.textContent = ""
     for (let i = 0; i < myLibrary.length; i++) {
+        console.log(myLibrary[i].sayPlatform())
         let newDiv = document.createElement('div')
         newDiv.id = `game${i}`
         // console.log(newDiv.id)
