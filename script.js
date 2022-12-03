@@ -13,7 +13,7 @@ const DE = new Game('DOOM Eternal', 'Steam', "Shooter", true)
 const RocketLeague = new Game('Rocket League', 'Epic', 'Action', false)
 const SR = new Game('The Elder Scrolls V: Skyrim Special Edition', 'Steam', 'RPG', false)
 const Kotor2 = new Game('Star Wars Knights of the Old Republic II: The Sith Lords', 'Steam', 'RPG', false)
-const Civ6 = new Game(`Sid Meier's Civilization VI : Platinum Edition'`, 'Steam', 'Strategy', false)
+const Civ6 = new Game(`Sid Meier's Civilization VI : Platinum Edition`, 'Steam', 'Strategy', false)
 
 
 function Game(title, platform, genre, completed) {

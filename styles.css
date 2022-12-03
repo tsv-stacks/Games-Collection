@@ -287,6 +287,25 @@ footer {
   .game {
     justify-content: space-evenly;
   }
+
+  .game-title {
+    text-align: center;
+    width: 40%;
+    font-weight: 520;
+  }
+
+  .game-platform {
+    width: 20%;
+  }
+
+  .game-genre {
+    width: 20%;
+  }
+
+  .game-complete {
+    width: 20%;
+    border-right: none;
+  }
 }
 
 @media (max-width: 455px) {
@@ -327,25 +346,6 @@ footer {
 
   .game p {
     font-size: 10px;
-  }
-
-  .game-title {
-    text-align: center;
-    width: 40%;
-    font-weight: 520;
-  }
-
-  .game-platform {
-    width: 20%;
-  }
-
-  .game-genre {
-    width: 20%;
-  }
-
-  .game-complete {
-    width: 20%;
-    border-right: none;
   }
 
   footer {
