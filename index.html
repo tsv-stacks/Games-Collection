@@ -56,11 +56,16 @@
           <h2>Add New Game</h2>
           <div class="formflex">
             <label for="mod-title">Title: </label>
-            <input type="text" placeholder="Game Title" name="mod-title" />
+            <input
+              type="text"
+              placeholder="Game Title"
+              name="mod-title"
+              required
+            />
           </div>
           <div class="formflex">
             <label for="mod-platform">Platform: </label>
-            <select name="mod-platform" id="mod-platform">
+            <select required name="mod-platform" id="mod-platform">
               <option value="" disabled selected>Select Game Platform</option>
               <optgroup label="--PC--">
                 <option value="Steam">Steam</option>
@@ -95,7 +100,7 @@
           </div>
           <div class="formflex">
             <label for="mod-genre">Genre: </label>
-            <select name="mod-genre" id="mod-genre">
+            <select required name="mod-genre" id="mod-genre">
               <option selected disabled value="">Select Game Genre</option>
               <option value="Action">Action</option>
               <option value="Adventure">Adventure</option>
@@ -116,6 +121,7 @@
               name="mod-complete-status"
               id="Yes"
               value="true"
+              required
             />
             <label for="Yes">Yes</label>
             <input

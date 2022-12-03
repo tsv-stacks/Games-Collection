@@ -3,19 +3,6 @@ let modal = document.getElementById("modal-add-game")
 let gameOneOutput = document.getElementById('game1')
 const gameContainer = document.getElementById('game-container')
 
-
-const Doom = new Game('DOOM 2016', 'Steam', "Shooter", true)
-const Factorio = new Game('Factorio', 'Steam', 'Strategy', true)
-const Rage2 = new Game('Rage 2', 'Epic', 'Action', true)
-const StS = new Game('Slay the Spire', 'Steam', 'Strategy', false)
-const VS = new Game('Vampire Survivors', 'Steam', 'Action', false)
-const DE = new Game('DOOM Eternal', 'Steam', "Shooter", true)
-const RocketLeague = new Game('Rocket League', 'Epic', 'Action', false)
-const SR = new Game('The Elder Scrolls V: Skyrim Special Edition', 'Steam', 'RPG', false)
-const Kotor2 = new Game('Star Wars Knights of the Old Republic II: The Sith Lords', 'Steam', 'RPG', false)
-const Civ6 = new Game(`Sid Meier's Civilization VI : Platinum Edition`, 'Steam', 'Strategy', false)
-
-
 function Game(title, platform, genre, completed) {
     this.title = title;
     this.platform = platform;
@@ -81,21 +68,26 @@ function titleCheck(title, platform) {
 }
 
 function inputArray() {
-    console.log('hi papi')
     // title, platform, genre, completed
     let title = document.getElementById("newGameForm").elements[0].value;
-    console.log(title)
+    console.log(title.value)
     let platform = document.getElementById("newGameForm").elements[1].value
-    console.log(platform)
+    console.log(platform.value)
     let genre = document.getElementById('mod-genre').value
-    console.log(genre)
-    let completed = document.querySelector('input[name="mod-complete-status"]:checked').value;
-    console.log(completed)
-    if (titleCheck(title, platform) !== false) {
-        let gameTitle = new Game(title, platform, genre, completed)
-        addGametoLibrary(gameTitle)
-        updateDisplay()
+    console.log(genre.value)
+    if (document.querySelector('input[name="mod-complete-status"]:checked') === null) {
         formReset()
+        return console.log('missing input')
+    } else {
+        let completed = document.querySelector('input[name="mod-complete-status"]:checked').value;
+        if (titleCheck(title, platform) !== false) {
+            let gameTitle = new Game(title, platform, genre, completed)
+            addGametoLibrary(gameTitle)
+            updateDisplay()
+            formReset()
+        } else {
+            return console.log('title already exist')
+        }
     }
 }
 
@@ -184,18 +176,6 @@ function updateDisplay() {
         newCont.appendChild(btn)
     }
 }
-
-//delete below
-addGametoLibrary(Doom)
-addGametoLibrary(Factorio)
-addGametoLibrary(Rage2)
-addGametoLibrary(StS)
-addGametoLibrary(VS)
-addGametoLibrary(DE)
-addGametoLibrary(RocketLeague)
-addGametoLibrary(SR)
-addGametoLibrary(Kotor2)
-addGametoLibrary(Civ6)
 
 // function runs on page load
 updateDisplay()
