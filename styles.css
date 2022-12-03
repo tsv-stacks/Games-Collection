@@ -172,6 +172,32 @@ footer {
   color: var(--snow);
 }
 
+.game p {
+  padding: 0 5px;
+  border-right: 1px solid var(--bitter-lime);
+}
+
+.game-title {
+  width: 40%;
+  font-weight: 520;
+}
+
+.game-platform {
+  text-align: center;
+  width: 15%;
+}
+
+.game-genre {
+  text-align: center;
+  width: 15%;
+}
+
+.game-complete {
+  text-align: center;
+  width: 15%;
+  border-right: none;
+}
+
 /* modal sign up form */
 
 .modal {
@@ -249,14 +275,33 @@ footer {
 
   .me-tsvstacks,
   .me-tsvstacks a {
-    font-size: 18px;
-  }
-}
-
-@media (max-width: 455px) {
-  .me-tsvstacks,
-  .me-tsvstacks a {
     font-size: 15px;
+  }
+
+  .game {
+    justify-content: space-evenly;
+  }
+
+  .game p {
+    font-size: 10px;
+  }
+
+  .game-title {
+    width: 40%;
+    font-weight: 520;
+  }
+
+  .game-platform {
+    width: 20%;
+  }
+
+  .game-genre {
+    width: 20%;
+  }
+
+  .game-complete {
+    width: 20%;
+    border-right: none;
   }
 
   footer {

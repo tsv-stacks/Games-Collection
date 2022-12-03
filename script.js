@@ -131,18 +131,9 @@ function updateDisplay() {
         newCont.appendChild(pGenre)
         // make completed
         let pComplete = document.createElement("p")
-        pComplete.classList.add('game-genre')
+        pComplete.classList.add('game-complete')
         pComplete.innerHTML = myLibrary[i].trueFalseConvert(myLibrary[i].completed)
         newCont.appendChild(pComplete)
-        // makes delete button
-        let btn = document.createElement('button');
-        btn.classList.add('delete-btn')
-        btn.classList.add('btn')
-        btn.setAttribute('data-a', `${i}`)
-        btn.innerHTML = "Delete"
-        btn.title = 'delete game entry'
-        btn.onclick = function () { deleteEntry(this) }
-        newCont.appendChild(btn)
         // makes completed toggle
         let togglebtn = document.createElement('button')
         togglebtn.classList.add('toggle-btn')
@@ -153,6 +144,15 @@ function updateDisplay() {
         togglebtn.innerHTML = "Completed"
         togglebtn.onclick = function () { completedToggle(this) }
         newCont.appendChild(togglebtn)
+        // makes delete button
+        let btn = document.createElement('button');
+        btn.classList.add('delete-btn')
+        btn.classList.add('btn')
+        btn.setAttribute('data-a', `${i}`)
+        btn.innerHTML = "Delete"
+        btn.title = 'delete game entry'
+        btn.onclick = function () { deleteEntry(this) }
+        newCont.appendChild(btn)
     }
 }
 
