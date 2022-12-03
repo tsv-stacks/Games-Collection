@@ -202,17 +202,17 @@ updateDisplay()
 
 const openForm = () => document.getElementById("modal-add-game").style.display = 'block'
 
-// function closeForm() {
-//     document.getElementById("modal-add-game").style.display = 'none';
-//     formReset()
-// }
+function closeForm() {
+    document.getElementById("modal-add-game").style.display = 'none';
+    formReset()
+}
 
-// window.onclick = function (event) {
-//     if (event.target == modal) {
-//         modal.style.display = "none";
-//         formReset()
-//     }
-// }
+window.onclick = function (event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+        formReset()
+    }
+}
 
 function resetList() {
     let result = confirm('This will clear the list of games in the collection. \nThere is no way to undo this. \nAre you sure you want to clear the list?')
