@@ -10,12 +10,46 @@ const Rage2 = new Game('Rage 2', 'Epic', 'Action', true)
 const StS = new Game('Slay the Spire', 'Steam', 'Strategy', false)
 const VS = new Game('Vampire Survivors', 'Steam', 'Action', false)
 const DE = new Game('DOOM Eternal', 'Steam', "Shooter", true)
+const RocketLeague = new Game('Rocket League', 'Epic', 'Action', false)
+const SR = new Game('The Elder Scrolls V: Skyrim Special Edition', 'Steam', 'RPG', false)
+const Kotor2 = new Game('Star Wars Knights of the Old Republic II: The Sith Lords', 'Steam', 'RPG', false)
+const Civ6 = new Game(`Sid Meier's Civilization VI : Platinum Edition`, 'Steam', 'Strategy', false)
+
 
 function Game(title, platform, genre, completed) {
     this.title = title;
     this.platform = platform;
     this.genre = genre;
     this.completed = completed;
+}
+
+Game.prototype.sayPlatform = function () {
+    return this.platform
+}
+
+Game.prototype.sayTitle = function () {
+    return this.title
+}
+
+Game.prototype.sayGenre = function () {
+    return this.genre
+}
+
+Game.prototype.trueFalseConvert = (e) => {
+    if (e === true) {
+        return "Completed"
+    } else {
+        return "Not Completed"
+    }
+}
+
+Game.prototype.listAll = () => {
+    array = ['title', 'platform', 'genre', 'completed']
+    const gameOutput = []
+    for (let i = 0; i < array.length; i++) {
+        gameOutput.push(this[array[i]])
+    }
+    return gameOutput.join(', ')
 }
 
 // create deletebutton
@@ -126,9 +160,19 @@ function updateDisplay() {
         newCont.appendChild(pGenre)
         // make completed
         let pComplete = document.createElement("p")
-        pComplete.classList.add('game-genre')
+        pComplete.classList.add('game-complete')
         pComplete.innerHTML = myLibrary[i].trueFalseConvert(myLibrary[i].completed)
         newCont.appendChild(pComplete)
+        // makes completed toggle
+        let togglebtn = document.createElement('button')
+        togglebtn.classList.add('toggle-btn')
+        togglebtn.classList.add('btn')
+        togglebtn.classList.add('hg')
+        togglebtn.setAttribute('data-b', `${i}`)
+        togglebtn.title = 'completed'
+        togglebtn.innerHTML = "Completed"
+        togglebtn.onclick = function () { completedToggle(this) }
+        newCont.appendChild(togglebtn)
         // makes delete button
         let btn = document.createElement('button');
         btn.classList.add('delete-btn')
@@ -138,46 +182,10 @@ function updateDisplay() {
         btn.title = 'delete game entry'
         btn.onclick = function () { deleteEntry(this) }
         newCont.appendChild(btn)
-        // makes completed toggle
-        let togglebtn = document.createElement('button')
-        togglebtn.classList.add('toggle-btn')
-        togglebtn.classList.add('btn')
-        togglebtn.setAttribute('data-b', `${i}`)
-        togglebtn.title = 'completed'
-        togglebtn.innerHTML = "Completed"
-        togglebtn.onclick = function () { completedToggle(this) }
-        newCont.appendChild(togglebtn)
     }
 }
 
-Game.prototype.sayPlatform = function () {
-    return this.platform
-}
 
-Game.prototype.sayTitle = function () {
-    return this.title
-}
-
-Game.prototype.sayGenre = function () {
-    return this.genre
-}
-
-Game.prototype.trueFalseConvert = (e) => {
-    if (e === true) {
-        return "Completed"
-    } else {
-        return "Not Completed"
-    }
-}
-
-Game.prototype.listAll = function () {
-    array = ['title', 'platform', 'genre', 'completed']
-    const gameOutput = []
-    for (let i = 0; i < array.length; i++) {
-        gameOutput.push(this[array[i]])
-    }
-    return gameOutput.join(', ')
-}
 //delete below
 addGametoLibrary(Doom)
 addGametoLibrary(Factorio)
@@ -185,6 +193,10 @@ addGametoLibrary(Rage2)
 addGametoLibrary(StS)
 addGametoLibrary(VS)
 addGametoLibrary(DE)
+addGametoLibrary(RocketLeague)
+addGametoLibrary(SR)
+addGametoLibrary(Kotor2)
+addGametoLibrary(Civ6)
 
 // function runs on page load
 updateDisplay()
