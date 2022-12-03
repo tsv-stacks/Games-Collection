@@ -23,6 +23,35 @@ function Game(title, platform, genre, completed) {
     this.completed = completed;
 }
 
+Game.prototype.sayPlatform = function () {
+    return this.platform
+}
+
+Game.prototype.sayTitle = function () {
+    return this.title
+}
+
+Game.prototype.sayGenre = function () {
+    return this.genre
+}
+
+Game.prototype.trueFalseConvert = (e) => {
+    if (e === true) {
+        return "Completed"
+    } else {
+        return "Not Completed"
+    }
+}
+
+Game.prototype.listAll = () => {
+    array = ['title', 'platform', 'genre', 'completed']
+    const gameOutput = []
+    for (let i = 0; i < array.length; i++) {
+        gameOutput.push(this[array[i]])
+    }
+    return gameOutput.join(', ')
+}
+
 // create deletebutton
 
 function createDeleteBtn() {
@@ -156,34 +185,7 @@ function updateDisplay() {
     }
 }
 
-Game.prototype.sayPlatform = function () {
-    return this.platform
-}
 
-Game.prototype.sayTitle = function () {
-    return this.title
-}
-
-Game.prototype.sayGenre = function () {
-    return this.genre
-}
-
-Game.prototype.trueFalseConvert = (e) => {
-    if (e === true) {
-        return "Completed"
-    } else {
-        return "Not Completed"
-    }
-}
-
-Game.prototype.listAll = function () {
-    array = ['title', 'platform', 'genre', 'completed']
-    const gameOutput = []
-    for (let i = 0; i < array.length; i++) {
-        gameOutput.push(this[array[i]])
-    }
-    return gameOutput.join(', ')
-}
 //delete below
 addGametoLibrary(Doom)
 addGametoLibrary(Factorio)

@@ -15,7 +15,7 @@
 
 * {
   box-sizing: border-box;
-  border: 1px red solid;
+  /* border: 1px red solid; */
   font-family: "Fira Sans", sans-serif;
 }
 
@@ -61,10 +61,6 @@ header img {
 }
 
 /* button container */
-.btn {
-  font-family: "VT323", monospace;
-  /* display: inline-flex; */
-}
 
 .btn-container {
   height: 5vh;
@@ -76,6 +72,7 @@ header img {
 }
 
 .pixel {
+  font-family: "VT323", monospace;
   font-size: 24px;
   padding: 2px 15px;
   cursor: pointer;
@@ -148,6 +145,25 @@ footer {
   color: var(--bitter-lime);
 }
 
+/* Games list container */
+
+.btn {
+  border-radius: 5px;
+  font-family: "VT323", monospace;
+  padding: 8px 20px;
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+.btn:active {
+  transform: translateY(4px);
+}
+
+.delete-btn:hover {
+  color: var(--snow);
+  background-color: var(--rust);
+}
+
 #game-container {
   padding-top: 3%;
   overflow-y: auto;
@@ -178,7 +194,7 @@ footer {
 }
 
 .game-title {
-  width: 40%;
+  width: 35%;
   font-weight: 520;
 }
 
@@ -255,11 +271,38 @@ footer {
   }
 }
 
+@media (max-width: 1000px) {
+  .btn {
+    padding: 4px 10px;
+  }
+}
+
+@media (max-width: 784px) {
+  .toggle-btn,
+  .delete-btn {
+    margin-left: 35px;
+    margin-right: 35px;
+  }
+
+  .game {
+    justify-content: space-evenly;
+  }
+}
+
 @media (max-width: 455px) {
   header {
     flex-direction: column;
     flex-wrap: nowrap;
     justify-content: space-evenly;
+  }
+
+  .toggle-btn,
+  .delete-btn {
+    margin: 0 auto;
+  }
+
+  .btn {
+    padding: 4px 10px;
   }
 
   header h1 {
@@ -287,6 +330,7 @@ footer {
   }
 
   .game-title {
+    text-align: center;
     width: 40%;
     font-weight: 520;
   }
