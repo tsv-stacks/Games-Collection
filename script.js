@@ -185,7 +185,6 @@ function updateDisplay() {
     }
 }
 
-
 //delete below
 addGametoLibrary(Doom)
 addGametoLibrary(Factorio)

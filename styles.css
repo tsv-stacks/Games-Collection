@@ -60,7 +60,28 @@ header img {
   height: 40%;
 }
 
+/* scroll bar */
+
 /* button container */
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: var(--snow);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--cerulean-blue);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--cornflower-blue);
+}
 
 .btn-container {
   height: 5vh;
