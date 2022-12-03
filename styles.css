@@ -1,9 +1,9 @@
 :root {
   --coquelicot: #fa3500ff;
   --yellow-green-color-wheel: rgb(0, 172, 0);
-  --cornflower-blue: rgb(107, 136, 254);
+  --cornflower-blue: #6b88fe;
   --peach-puff: #f1d0b1ff;
-  --cerulean-blue: rgb(62, 90, 211);
+  --cerulean-blue: #3e5ad3;
   --rust: rgb(177, 76, 21);
   --bitter-lime: #b7f818ff;
   --snow: #fefafaff;
@@ -70,17 +70,17 @@ header img {
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: var(--snow);
+  background: var(--cerulean-blue);
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: var(--cerulean-blue);
+  background: var(--snow);
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--cornflower-blue);
+  background: var(--bitter-lime);
 }
 
 .btn-container {
@@ -238,7 +238,8 @@ footer {
 /* modal sign up form */
 
 .modal {
-  display: none; /* Hidden by default */
+  /* display: none;  */
+  /* Hidden by default */
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
   left: 0;
@@ -255,24 +256,95 @@ footer {
 .modal-content {
   background-color: #fefefe;
   margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
-  border: 1px solid #888;
+  border: 1px solid var(--bitter-lime);
   width: 80%;
+  max-width: 600px;
+  border-radius: 3px;
 }
 
 .modal-container {
+  border: 1px transparent solid;
   min-width: 250px;
+  color: var(--snow);
+  background: rgb(107, 136, 254);
+  background: linear-gradient(
+    180deg,
+    rgba(107, 136, 254, 1) 20%,
+    rgba(62, 90, 211, 0.9640231092436975) 70%
+  );
+  background-image: url(./mario.JPG);
+  background-size: cover;
+  background-position: center;
+}
+
+.modal-container label {
+  font-family: "VT323", monospace;
+  font-size: 20px;
+}
+
+.modal-container input {
+  font-size: 16px;
+}
+
+input[type="text"],
+#mod-genre {
+  width: 197px;
+}
+
+br {
+  display: none;
+}
+
+.formflex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+.formflex label {
+  width: 20%;
+  min-width: 120px;
+}
+
+.radio-b {
+  display: flex;
+  justify-content: center;
 }
 
 .modal-container h2 {
   text-align: center;
   font-family: "Common Pixel", sans-serif;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000;
+}
+
+.btn-m {
+  margin: 5px 20px;
+  font-size: 20px;
+  align-items: center;
+  text-align: center;
+}
+
+.btn-m:hover {
+  color: var(--snow);
+  background-color: var(--cerulean-blue);
+  border: 2px solid var(--bitter-lime);
+}
+
+.clearfix {
+  display: flex;
+  justify-content: center;
 }
 
 .close {
-  font-size: 40px;
+  font-size: 30px;
   font-weight: bold;
-  color: grey;
+  color: black;
   float: right;
+  padding-top: 0;
+  height: fit-content;
 }
 
 .close:hover,
@@ -336,6 +408,14 @@ footer {
     justify-content: space-evenly;
   }
 
+  .formflex {
+    text-align: center;
+  }
+
+  .modal-container {
+    background-position: right 20% bottom 45%;
+  }
+
   .toggle-btn,
   .delete-btn {
     margin: 0 auto;
@@ -375,5 +455,11 @@ footer {
 
   .pixel {
     font-size: 18px;
+  }
+}
+
+@media (max-width: 350px) {
+  br {
+    display: block;
   }
 }

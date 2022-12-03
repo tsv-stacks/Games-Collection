@@ -52,83 +52,94 @@
         onsubmit="event.preventDefault();"
       >
         <div class="modal-container">
-          <div class="close" title="Close Modal" onclick="closeForm()">X</div>
+          <div class="close" title="Close Modal" onclick="closeForm()">x</div>
           <h2>Add New Game</h2>
-          <label for="mod-title">Title: </label>
-          <input type="text" placeholder="Game Title" name="mod-title" />
-          <br />
-
-          <label for="mod-platform">Platform: </label>
-          <select name="mod-platform" id="mod-platform">
-            <option value="" disabled selected>Select Game Platform</option>
-            <optgroup label="--PC--">
-              <option value="Steam">Steam</option>
-              <option value="GOG">GOG</option>
-              <option value="Ubisoft">Ubisoft Store</option>
-              <option value="Epic">Epic</option>
-            </optgroup>
-            <optgroup label="--SONY--">
-              <option value="Playstation 5">Playstation 5</option>
-              <option value="Playstation 4">Playstation 4</option>
-              <option value="Playstation 3">Playstation 3</option>
-              <option value="Playstation 2">Playstation 2</option>
-              <option value="Playstation">Playstation</option>
-              <option value="PlayStation Portable">
-                PlayStation Portable (PSP)
-              </option>
-            </optgroup>
-            <optgroup label="--NINTENDO--">
-              <option value="Nintendo Wii">Nintendo Wii</option>
-              <option value="Nintendo Switch">Nintendo Switch</option>
-              <option value="Nintendo DS">Nintendo DS</option>
-              <option value="GameCube">GameCube</option>
-              <option value="Nintendo 64">Nintendo 64</option>
-            </optgroup>
-            <optgroup label="--MICROSOFT--">
-              <option value="Xbox">Xbox</option>
-              <option value="Xbox 360">Xbox 360</option>
-              <option value="Xbox One">Xbox One</option>
-              <option value="Xbox Series X/S">Xbox Series X/S</option>
-            </optgroup>
-          </select>
-          <br />
-
-          <label for="mod-genre">Genre: </label>
-          <select name="mod-genre" id="mod-genre">
-            <option selected disabled value="">Select Game Genre</option>
-            <option value="Action">Action</option>
-            <option value="Adventure">Adventure</option>
-            <option value="Puzzle">Puzzle</option>
-            <option value="Role Playing Game">Role Playing Game</option>
-            <option value="Simulation">Simulation</option>
-            <option value="Strategy">Strategy</option>
-            <option value="Sports">Sports</option>
-            <option value="MMO">MMO</option>
-            <option value="Sandbox">Sandbox / Open World</option>
-          </select>
-          <br />
-
-          <label for="mod-complete-status">Completed: </label>
-          <input
-            type="radio"
-            name="mod-complete-status"
-            id="Yes"
-            value="true"
-          />
-          <label for="Yes">Yes</label>
-          <input
-            type="radio"
-            name="mod-complete-status"
-            id="No"
-            value="false"
-          />
-          <label for="No">No</label>
+          <div class="formflex">
+            <label for="mod-title">Title: </label>
+            <input type="text" placeholder="Game Title" name="mod-title" />
+          </div>
+          <div class="formflex">
+            <label for="mod-platform">Platform: </label>
+            <select name="mod-platform" id="mod-platform">
+              <option value="" disabled selected>Select Game Platform</option>
+              <optgroup label="--PC--">
+                <option value="Steam">Steam</option>
+                <option value="GOG">GOG</option>
+                <option value="Ubisoft">Ubisoft Store</option>
+                <option value="Epic">Epic</option>
+              </optgroup>
+              <optgroup label="--SONY--">
+                <option value="Playstation 5">Playstation 5</option>
+                <option value="Playstation 4">Playstation 4</option>
+                <option value="Playstation 3">Playstation 3</option>
+                <option value="Playstation 2">Playstation 2</option>
+                <option value="Playstation">Playstation</option>
+                <option value="PlayStation Portable">
+                  PlayStation Portable (PSP)
+                </option>
+              </optgroup>
+              <optgroup label="--NINTENDO--">
+                <option value="Nintendo Wii">Nintendo Wii</option>
+                <option value="Nintendo Switch">Nintendo Switch</option>
+                <option value="Nintendo DS">Nintendo DS</option>
+                <option value="GameCube">GameCube</option>
+                <option value="Nintendo 64">Nintendo 64</option>
+              </optgroup>
+              <optgroup label="--MICROSOFT--">
+                <option value="Xbox">Xbox</option>
+                <option value="Xbox 360">Xbox 360</option>
+                <option value="Xbox One">Xbox One</option>
+                <option value="Xbox Series X/S">Xbox Series X/S</option>
+              </optgroup>
+            </select>
+          </div>
+          <div class="formflex">
+            <label for="mod-genre">Genre: </label>
+            <select name="mod-genre" id="mod-genre">
+              <option selected disabled value="">Select Game Genre</option>
+              <option value="Action">Action</option>
+              <option value="Adventure">Adventure</option>
+              <option value="Puzzle">Puzzle</option>
+              <option value="Role Playing Game">Role Playing Game</option>
+              <option value="Simulation">Simulation</option>
+              <option value="Strategy">Strategy</option>
+              <option value="Sports">Sports</option>
+              <option value="MMO">MMO</option>
+              <option value="Sandbox">Sandbox / Open World</option>
+            </select>
+          </div>
+          <div class="radio-b">
+            <label for="mod-complete-status">Completed: </label>
+            <br />
+            <input
+              type="radio"
+              name="mod-complete-status"
+              id="Yes"
+              value="true"
+            />
+            <label for="Yes">Yes</label>
+            <input
+              type="radio"
+              name="mod-complete-status"
+              id="No"
+              value="false"
+            />
+            <label for="No">No</label>
+          </div>
 
           <div class="clearfix">
-            <button type="submit" class="submitbtn" onclick="inputArray()">
+            <button
+              type="submit"
+              class="btn btn-m submitbtn"
+              onclick="inputArray()"
+            >
               Submit
             </button>
-            <button type="button" onclick="closeForm()" class="cancelbtn">
+            <button
+              type="button"
+              onclick="closeForm()"
+              class="btn cancelbtn btn-m"
+            >
               Cancel
             </button>
           </div>
