@@ -218,6 +218,7 @@ window.onclick = function (event) {
 function resetList() {
     let result = confirm('This will clear the list of games in the collection. \nThere is no way to undo this. \nAre you sure you want to clear the list?')
     if (result) {
-        gameContainer.textContent = ""
+        myLibrary = []
+        updateDisplay()
     }
 }
