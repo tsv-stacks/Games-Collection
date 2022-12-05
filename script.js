@@ -23,7 +23,7 @@ Game.prototype.sayGenre = function () {
 }
 
 Game.prototype.trueFalseConvert = (e) => {
-    if (e === true) {
+    if (e == true) {
         return "Completed"
     } else {
         return "Not Completed"
