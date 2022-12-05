@@ -36,7 +36,7 @@ Game.prototype.sayGenre = function () {
 }
 
 Game.prototype.trueFalseConvert = (e) => {
-    if (e === true) {
+    if (e == true) {
         return "Completed"
     } else {
         return "Not Completed"
@@ -83,7 +83,8 @@ function titleCheck(title, platform) {
 function inputArray() {
     console.log('hi papi')
     // title, platform, genre, completed
-    let title = document.getElementById("newGameForm").elements[0].value;
+    let titleTrim = document.getElementById("newGameForm").elements[0].value;
+    let title = titleTrim.trim()
     console.log(title)
     let platform = document.getElementById("newGameForm").elements[1].value
     console.log(platform)
