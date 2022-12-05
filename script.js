@@ -35,12 +35,16 @@ Game.prototype.sayGenre = function () {
     return this.genre
 }
 
-Game.prototype.trueFalseConvert = (e) => {
-    if (e == true) {
-        return "Completed"
-    } else {
-        return "Not Completed"
-    }
+// Game.prototype.trueFalseConvert = (e) => {
+//     if (e == true) {
+//         return "Completed"
+//     } else {
+//         return "Not Completed"
+//     }
+// }
+
+Game.prototype.sayCompleted = function () {
+    return this.completed
 }
 
 Game.prototype.listAll = () => {
@@ -50,6 +54,18 @@ Game.prototype.listAll = () => {
         gameOutput.push(this[array[i]])
     }
     return gameOutput.join(', ')
+}
+
+// true/false to completed output
+
+function completedBackend(value) {
+    if (value === true) {
+        // console.log('true')
+        return "Completed"
+    } else if (value === false) {
+        // console.log('false')
+        return "Not Completed"
+    }
 }
 
 // create deletebutton
@@ -85,11 +101,11 @@ function inputArray() {
     // title, platform, genre, completed
     let titleTrim = document.getElementById("newGameForm").elements[0].value;
     let title = titleTrim.trim()
-    console.log(title)
+    // console.log(title)
     let platform = document.getElementById("newGameForm").elements[1].value
-    console.log(platform)
+    // console.log(platform)
     let genre = document.getElementById('mod-genre').value
-    console.log(genre)
+    // console.log(genre)
     let completed = document.querySelector('input[name="mod-complete-status"]:checked').value;
     console.log(completed)
     if (titleCheck(title, platform) !== false) {
@@ -131,7 +147,14 @@ function deleteEntry(thisdata) {
 function completedToggle(thisdata) {
     console.log('completed toggle button')
     let num = thisdata.getAttribute('data-b')
-    myLibrary[num].completed = !myLibrary[num].completed
+    // myLibrary[num].completed = !myLibrary[num].completed
+    let x = myLibrary[num].sayCompleted()
+    console.log(x)
+    if (myLibrary[num].completed === true) {
+        return myLibrary[num].completed = false
+    } else if (myLibrary[num].completed === false) {
+        return myLibrary[num].completed = true
+    }
     updateDisplay()
 }
 
@@ -162,7 +185,12 @@ function updateDisplay() {
         // make completed
         let pComplete = document.createElement("p")
         pComplete.classList.add('game-complete')
-        pComplete.innerHTML = myLibrary[i].trueFalseConvert(myLibrary[i].completed)
+        let completedOutput = myLibrary[i].sayCompleted()
+        console.log(completedOutput)
+        let finalOutput = completedBackend(completedOutput)
+        console.log(String(finalOutput))
+        pComplete.innerHTML = myLibrary[i].sayCompleted()
+        // pComplete.innerHTML = myLibrary[i].trueFalseConvert(myLibrary[i].completed)
         newCont.appendChild(pComplete)
         // makes completed toggle
         let togglebtn = document.createElement('button')
