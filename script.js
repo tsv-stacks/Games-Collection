@@ -85,11 +85,11 @@ function inputArray() {
     // title, platform, genre, completed
     let titleTrim = document.getElementById("newGameForm").elements[0].value;
     let title = titleTrim.trim()
-    console.log(title)
+    // console.log(title)
     let platform = document.getElementById("newGameForm").elements[1].value
-    console.log(platform)
+    // console.log(platform)
     let genre = document.getElementById('mod-genre').value
-    console.log(genre)
+    // console.log(genre)
     let completed = document.querySelector('input[name="mod-complete-status"]:checked').value;
     console.log(completed)
     if (titleCheck(title, platform) !== false) {
