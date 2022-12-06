@@ -77,7 +77,7 @@ function titleCheck(title, platform) {
 }
 
 function inputArray() {
-    console.log('hi papi')
+     console.log('hi papi')
     // title, platform, genre, completed
     let titleTrim = document.getElementById("newGameForm").elements[0].value;
     let title = titleTrim.trim()
@@ -93,8 +93,8 @@ function inputArray() {
         addGametoLibrary(gameTitle)
         updateDisplay()
         formReset()
-    }
-}
+        }
+       }      
 
 // function goes through myLibrary array
 // if completed == true , change true to completed
@@ -124,6 +124,7 @@ function completedToggle(thisdata) {
     myLibrary[num].completed = !myLibrary[num].completed
     updateDisplay()
 }
+
 
 function updateDisplay() {
     gameContainer.textContent = ""
