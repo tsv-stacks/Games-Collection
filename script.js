@@ -58,14 +58,15 @@ Game.prototype.listAll = () => {
 
 // true/false to completed output
 
-function completedBackend(value) {
-    if (value === true) {
+function completedBackend(x) {
+    if (x === true || x === 'true') {
         // console.log('true')
         return "Completed"
-    } else if (value === false) {
+    } else if (x === false || x === 'false') {
         // console.log('false')
         return "Not Completed"
     }
+    // updateDisplay()
 }
 
 // create deletebutton
@@ -116,12 +117,6 @@ function inputArray() {
     }
 }
 
-// button brings up form
-// collect user input
-
-// button functionality
-// if text is in form, clear text when closing it
-
 // function goes through myLibrary array
 // if completed == true , change true to completed
 // checks length
@@ -147,14 +142,7 @@ function deleteEntry(thisdata) {
 function completedToggle(thisdata) {
     console.log('completed toggle button')
     let num = thisdata.getAttribute('data-b')
-    // myLibrary[num].completed = !myLibrary[num].completed
-    let x = myLibrary[num].sayCompleted()
-    console.log(x)
-    if (myLibrary[num].completed === true) {
-        return myLibrary[num].completed = false
-    } else if (myLibrary[num].completed === false) {
-        return myLibrary[num].completed = true
-    }
+    myLibrary[num].completed = !myLibrary[num].completed
     updateDisplay()
 }
 
@@ -188,8 +176,8 @@ function updateDisplay() {
         let completedOutput = myLibrary[i].sayCompleted()
         console.log(completedOutput)
         let finalOutput = completedBackend(completedOutput)
-        console.log(String(finalOutput))
-        pComplete.innerHTML = myLibrary[i].sayCompleted()
+        console.log(finalOutput)
+        pComplete.innerHTML = finalOutput
         // pComplete.innerHTML = myLibrary[i].trueFalseConvert(myLibrary[i].completed)
         newCont.appendChild(pComplete)
         // makes completed toggle
