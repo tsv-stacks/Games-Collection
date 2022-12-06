@@ -19,3 +19,5 @@ function addBookToLibrary() {
 # Add a button on each book’s display to remove the book from the library
 
 # Add a button on each book’s display to change its read status
+
+# testing branch has form required tag removed and hard coded in games classes

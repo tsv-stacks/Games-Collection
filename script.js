@@ -22,12 +22,8 @@ Game.prototype.sayGenre = function () {
     return this.genre
 }
 
-Game.prototype.trueFalseConvert = (e) => {
-    if (e == true) {
-        return "Completed"
-    } else {
-        return "Not Completed"
-    }
+Game.prototype.sayCompleted = function () {
+    return this.completed
 }
 
 Game.prototype.listAll = () => {
@@ -37,6 +33,19 @@ Game.prototype.listAll = () => {
         gameOutput.push(this[array[i]])
     }
     return gameOutput.join(', ')
+}
+
+// true/false to completed output
+
+function completedBackend(x) {
+    if (x === true || x === 'true') {
+        // console.log('true')
+        return "Completed"
+    } else if (x === false || x === 'false') {
+        // console.log('false')
+        return "Not Completed"
+    }
+    // updateDisplay()
 }
 
 // create deletebutton
@@ -68,34 +77,24 @@ function titleCheck(title, platform) {
 }
 
 function inputArray() {
+     console.log('hi papi')
     // title, platform, genre, completed
-    let title = document.getElementById("newGameForm").elements[0].value;
-    console.log(title.value)
+    let titleTrim = document.getElementById("newGameForm").elements[0].value;
+    let title = titleTrim.trim()
+    // console.log(title)
     let platform = document.getElementById("newGameForm").elements[1].value
-    console.log(platform.value)
+    // console.log(platform)
     let genre = document.getElementById('mod-genre').value
-    console.log(genre.value)
-    if (document.querySelector('input[name="mod-complete-status"]:checked') === null) {
+    // console.log(genre)
+    let completed = document.querySelector('input[name="mod-complete-status"]:checked').value;
+    console.log(completed)
+    if (titleCheck(title, platform) !== false) {
+        let gameTitle = new Game(title, platform, genre, completed)
+        addGametoLibrary(gameTitle)
+        updateDisplay()
         formReset()
-        return console.log('missing input')
-    } else {
-        let completed = document.querySelector('input[name="mod-complete-status"]:checked').value;
-        if (titleCheck(title, platform) !== false) {
-            let gameTitle = new Game(title, platform, genre, completed)
-            addGametoLibrary(gameTitle)
-            updateDisplay()
-            formReset()
-        } else {
-            return console.log('title already exist')
         }
-    }
-}
-
-// button brings up form
-// collect user input
-
-// button functionality
-// if text is in form, clear text when closing it
+       }      
 
 // function goes through myLibrary array
 // if completed == true , change true to completed
@@ -122,15 +121,10 @@ function deleteEntry(thisdata) {
 function completedToggle(thisdata) {
     console.log('completed toggle button')
     let num = thisdata.getAttribute('data-b')
-    // console.log(myLibrary[num].completed)
-    if (myLibrary[num].completed == true) {
-        myLibrary[num].completed = false
-        updateDisplay()
-    } else {
-        myLibrary[num].completed = true
-        updateDisplay()
-    }
+    myLibrary[num].completed = !myLibrary[num].completed
+    updateDisplay()
 }
+
 
 function updateDisplay() {
     gameContainer.textContent = ""
@@ -159,7 +153,12 @@ function updateDisplay() {
         // make completed
         let pComplete = document.createElement("p")
         pComplete.classList.add('game-complete')
-        pComplete.innerHTML = myLibrary[i].trueFalseConvert(myLibrary[i].completed)
+        let completedOutput = myLibrary[i].sayCompleted()
+        console.log(completedOutput)
+        let finalOutput = completedBackend(completedOutput)
+        console.log(finalOutput)
+        pComplete.innerHTML = finalOutput
+        // pComplete.innerHTML = myLibrary[i].trueFalseConvert(myLibrary[i].completed)
         newCont.appendChild(pComplete)
         // makes completed toggle
         let togglebtn = document.createElement('button')
