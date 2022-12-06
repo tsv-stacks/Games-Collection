@@ -3,19 +3,6 @@ let modal = document.getElementById("modal-add-game")
 let gameOneOutput = document.getElementById('game1')
 const gameContainer = document.getElementById('game-container')
 
-
-const Doom = new Game('DOOM 2016', 'Steam', "Shooter", true)
-const Factorio = new Game('Factorio', 'Steam', 'Strategy', true)
-const Rage2 = new Game('Rage 2', 'Epic', 'Action', true)
-const StS = new Game('Slay the Spire', 'Steam', 'Strategy', false)
-const VS = new Game('Vampire Survivors', 'Steam', 'Action', false)
-const DE = new Game('DOOM Eternal', 'Steam', "Shooter", true)
-const RocketLeague = new Game('Rocket League', 'Epic', 'Action', false)
-const SR = new Game('The Elder Scrolls V: Skyrim Special Edition', 'Steam', 'RPG', false)
-const Kotor2 = new Game('Star Wars Knights of the Old Republic II: The Sith Lords', 'Steam', 'RPG', false)
-const Civ6 = new Game(`Sid Meier's Civilization VI : Platinum Edition`, 'Steam', 'Strategy', false)
-
-
 function Game(title, platform, genre, completed) {
     this.title = title;
     this.platform = platform;
@@ -34,14 +21,6 @@ Game.prototype.sayTitle = function () {
 Game.prototype.sayGenre = function () {
     return this.genre
 }
-
-// Game.prototype.trueFalseConvert = (e) => {
-//     if (e == true) {
-//         return "Completed"
-//     } else {
-//         return "Not Completed"
-//     }
-// }
 
 Game.prototype.sayCompleted = function () {
     return this.completed
@@ -201,18 +180,6 @@ function updateDisplay() {
         newCont.appendChild(btn)
     }
 }
-
-//delete below
-addGametoLibrary(Doom)
-addGametoLibrary(Factorio)
-addGametoLibrary(Rage2)
-addGametoLibrary(StS)
-addGametoLibrary(VS)
-addGametoLibrary(DE)
-addGametoLibrary(RocketLeague)
-addGametoLibrary(SR)
-addGametoLibrary(Kotor2)
-addGametoLibrary(Civ6)
 
 // function runs on page load
 updateDisplay()
