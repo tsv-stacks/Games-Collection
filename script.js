@@ -3,40 +3,37 @@ let modal = document.getElementById("modal-add-game")
 let gameOneOutput = document.getElementById('game1')
 const gameContainer = document.getElementById('game-container')
 
-function Game(title, platform, genre, completed) {
-    this.title = title;
-    this.platform = platform;
-    this.genre = genre;
-    this.completed = completed;
-}
-
-Game.prototype.sayPlatform = function () {
-    return this.platform
-}
-
-Game.prototype.sayTitle = function () {
-    return this.title
-}
-
-Game.prototype.sayGenre = function () {
-    return this.genre
-}
-
-Game.prototype.trueFalseConvert = (e) => {
-    if (e == true) {
-        return "Completed"
-    } else {
-        return "Not Completed"
+class Game {
+    constructor(title, platform, genre, completed) {
+        this.title = title;
+        this.platform = platform;
+        this.genre = genre;
+        this.completed = completed;
     }
-}
-
-Game.prototype.listAll = () => {
-    array = ['title', 'platform', 'genre', 'completed']
-    const gameOutput = []
-    for (let i = 0; i < array.length; i++) {
-        gameOutput.push(this[array[i]])
+    sayPlatform() {
+        return this.platform;
     }
-    return gameOutput.join(', ')
+    sayTitle() {
+        return this.title;
+    }
+    sayGenre() {
+        return this.genre;
+    }
+    trueFalseConvert(e) {
+        if (e == true) {
+            return "Completed";
+        } else {
+            return "Not Completed";
+        }
+    }
+    listAll() {
+        array = ['title', 'platform', 'genre', 'completed'];
+        const gameOutput = [];
+        for (let i = 0; i < array.length; i++) {
+            gameOutput.push(this[array[i]]);
+        }
+        return gameOutput.join(', ');
+    }
 }
 
 // create deletebutton
